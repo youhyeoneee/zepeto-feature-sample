@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: b8592219414c24685a7478f315a0abb9
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass Teleport extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Start() {\r\n        // Find the local player and Set it to _localCharacter\r\n       
+    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            this._localCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
+    });\r\n    }\r\n    OnTriggerEnter(collider) {\r\n        // Do not execute the
+    function if _localCharacter is not set yet or if the collided gameObject is not
+    _localCharacter\r\n        if (this._localCharacter == null || UnityEngine_1.GameObject.op_Inequality(collider.gameObject,
+    this._localCharacter.gameObject)) {\r\n            return;\r\n        }\r\n       
+    // Teleport the _localCharacter to the position of destinationObject\r\n       
+    this._localCharacter.Teleport(this.destinationObject.transform.position, UnityEngine_1.Quaternion.identity);\r\n   
+    }\r\n}\r\nexports.default = Teleport;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGVsZXBvcnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJUZWxlcG9ydC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUF3RTtBQUN4RSw2RUFBc0c7QUFDdEcsaURBQXNEO0FBRXRELE1BQXFCLFFBQVMsU0FBUSxxQ0FBcUI7SUFPdkQsS0FBSztRQUNELHNEQUFzRDtRQUN0RCwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZELElBQUksQ0FBQyxlQUFlLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7UUFDckYsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRUQsY0FBYyxDQUFDLFFBQWtCO1FBQzdCLHFIQUFxSDtRQUNySCxJQUFJLElBQUksQ0FBQyxlQUFlLElBQUksSUFBSSxJQXBCQSx3QkFBVSxDQTJCbzVULGFBQWMsQ0FQeDZULFFBQVEsQ0FBQyxVQUFVLEVBQUksSUFBSSxDQUFDLGVBQWUsQ0FBQyxVQUFVLENBQUEsRUFBRTtZQUN4RixPQUFPO1NBQ1Y7UUFFRCxvRUFBb0U7UUFDcEUsSUFBSSxDQUFDLGVBQWUsQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLGlCQUFpQixDQUFDLFNBQVMsQ0FBQyxRQUFRLEVBQUUsd0JBQVUsQ0FBQyxRQUFRLENBQUMsQ0FBQztJQUNsRyxDQUFDO0NBQ0o7QUF2QkQsMkJBdUJDIn0=","assetPath":"Assets/Teleport/Scripts/Teleport.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"destinationObject","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"Teleport","description":""},"isCompiled":true}'
+  typescriptHash: ac2fd3a316500e6d0be163f5bead9474
+  onlyWriteTrigger: 0
