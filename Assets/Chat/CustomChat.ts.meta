@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: dc7159dc9c05b44b690049f97a058e72
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ZEPETO_Chat_1 = require(\"ZEPETO.Chat\");\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nclass
+    CustomChat extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n       
+    this.sendChatBtn.onClick.AddListener(() => {\r\n            this.resultText.color
+    = UnityEngine_1.Color.black;\r\n            const inputMsg = this.inputChatbox.text;\r\n           
+    ZEPETO_Chat_1.ZepetoChat.Send(inputMsg);\r\n        });\r\n        // Receive
+    message\r\n        ZEPETO_Chat_1.ZepetoChat.OnReceivedMessage.AddListener(msg
+    => {\r\n            const userMsg = msg;\r\n            this.resultText.text
+    = `[USER - ${userMsg.userName}] - ${userMsg.message}`;\r\n        });\r\n   
+    }\r\n}\r\nexports.default = CustomChat;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ3VzdG9tQ2hhdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkN1c3RvbUNoYXQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFFdEQsNkNBQW1FO0FBQ25FLDZDQUFvQztBQUdwQyxNQUFxQixVQUFXLFNBQVEscUNBQXFCO0lBTXpELEtBQUs7UUFFRCxJQUFJLENBQUMsV0FBVyxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3RDLElBQUksQ0FBQyxVQUFVLENBQUMsS0FBSyxHQUFHLG1CQUFLLENBQUMsS0FBSyxDQUFDO1lBQ3BDLE1BQU0sUUFBUSxHQUFHLElBQUksQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDO1lBQ3hDLHdCQUFVLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxDQUFDO1FBQzlCLENBQUMsQ0FBQyxDQUFDO1FBRUgsa0JBQWtCO1FBQ2xCLHdCQUFVLENBQUMsaUJBQWlCLENBQUMsV0FBVyxDQUFDLEdBQUcsQ0FBQyxFQUFFO1lBQzNDLE1BQU0sT0FBTyxHQUFHLEdBQWtCLENBQUM7WUFDbkMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxJQUFJLEdBQUcsV0FBVyxPQUFPLENBQUMsUUFBUSxPQUFPLE9BQU8sQ0FBQyxPQUFPLEVBQUUsQ0FBQztRQUMvRSxDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7Q0FDSjtBQXBCRCw2QkFvQkMifQ==","assetPath":"Assets/Chat/CustomChat.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"sendChatBtn","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"resultText","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"inputChatbox","type":"UnityEngine.UI.InputField","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"CustomChat","description":""},"isCompiled":true}'
+  typescriptHash: f653d1ebe66c9ef7db72c637c02a7121
+  onlyWriteTrigger: 0

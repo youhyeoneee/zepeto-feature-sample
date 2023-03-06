@@ -1,0 +1,44 @@
+fileFormatVersion: 2
+guid: 340280e5515474f2797be136bfc1f27a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ZEPETO_Character_Controller_1
+    = require(\"ZEPETO.Character.Controller\");\r\nconst InteractionIcon_1 = require(\"./InteractionIcon\");\r\nclass
+    NPCDialog extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n       
+    this._interactionIcon = this.transform.GetComponent($typeof(InteractionIcon_1.default));\r\n       
+    if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Inequality(this._interactionIcon,
+    null)) {\r\n            ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n                this._localCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n           
+    });\r\n            // NPC Interaction\r\n            this._interactionIcon.OnClickEvent.AddListener(()
+    => {\r\n                this._interactionIcon.HideIcon();\r\n               
+    this.DoInteraction();\r\n            });\r\n        }\r\n        else {\r\n           
+    console.error(\"InteractionIcon not found on \" + this.transform.name);\r\n       
+    }\r\n        // Dialog - Select Yes\r\n        this.yesButton.onClick.AddListener(()
+    => {\r\n            this.npcDialogCanvas.SetActive(false);\r\n            const
+    animator = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.ZepetoAnimator;\r\n           
+    const hand = animator.GetBoneTransform(UnityEngine_1.HumanBodyBones.RightHand);\r\n           
+    this._rightHandItemObject = UnityEngine_1.Object.Instantiate(this.rightHandItemPrefab,
+    hand);\r\n        });\r\n        // Dialog - Select No\r\n        this.noButton.onClick.AddListener(()
+    => {\r\n            this.npcDialogCanvas.SetActive(false);\r\n        });\r\n   
+    }\r\n    DoInteraction() {\r\n        this.npcDialogCanvas.SetActive(true);\r\n   
+    }\r\n}\r\nexports.default = NPCDialog;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTlBDRGlhbG9nLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTlBDRGlhbG9nLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQWlFO0FBQ2pFLGlEQUFzRDtBQUV0RCw2RUFBNkU7QUFFN0UsdURBQWdEO0FBRWhELE1BQXFCLFNBQVUsU0FBUSxxQ0FBcUI7SUFXeEQsS0FBSztRQUVELElBQUksQ0FBQyxnQkFBZ0IsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLFlBQVksU0FBQyx5QkFBZSxFQUFHLENBQUM7UUFFdkUsSUFyQkMscUNBQXFCLENBdURnaUssYUFBYyxDQWxDaGtLLElBQUksQ0FBQyxnQkFBZ0IsRUFBSSxJQUFJLEdBQUU7WUFDL0IsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUUsRUFBRTtnQkFDdEQsSUFBSSxDQUFDLGVBQWUsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQztZQUNyRixDQUFDLENBQUMsQ0FBQztZQUVILGtCQUFrQjtZQUNsQixJQUFJLENBQUMsZ0JBQWdCLENBQUMsWUFBWSxDQUFDLFdBQVcsQ0FBQyxHQUFFLEVBQUU7Z0JBQy9DLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxRQUFRLEVBQUUsQ0FBQztnQkFDakMsSUFBSSxDQUFDLGFBQWEsRUFBRSxDQUFDO1lBQ3pCLENBQUMsQ0FBQyxDQUFDO1NBQ047YUFBTTtZQUNILE9BQU8sQ0FBQyxLQUFLLENBQUMsK0JBQStCLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztTQUN4RTtRQUVELHNCQUFzQjtRQUN0QixJQUFJLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3BDLElBQUksQ0FBQyxlQUFlLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1lBQ3RDLE1BQU0sUUFBUSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLGNBQWMsQ0FBQztZQUMxRixNQUFNLElBQUksR0FBRyxRQUFRLENBQUMsZ0JBQWdCLENBQUMsNEJBQWMsQ0FBQyxTQUFTLENBQUMsQ0FBQztZQUVqRSxJQUFJLENBQUMsb0JBQW9CLEdBQUcsb0JBQU0sQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLG1CQUFtQixFQUFFLElBQUksQ0FBZSxDQUFDO1FBQ2pHLENBQUMsQ0FBQyxDQUFDO1FBRUgscUJBQXFCO1FBQ3JCLElBQUksQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDbkMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7UUFDMUMsQ0FBQyxDQUFDLENBQUM7SUFFUCxDQUFDO0lBRU8sYUFBYTtRQUNqQixJQUFJLENBQUMsZUFBZSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUN6QyxDQUFDO0NBRUo7QUFqREQsNEJBaURDIn0=","assetPath":"Assets/NPC/NPCDialog.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"npcDialogCanvas","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"rightHandItemPrefab","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"yesButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"noButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"NPCDialog","description":""},"isCompiled":true}'
+  typescriptHash: 739e2ebc848477ad7a399791d76db3f9
+  onlyWriteTrigger: 0

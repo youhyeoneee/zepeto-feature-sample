@@ -22,9 +22,9 @@ ScriptedImporter:
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
     ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
     ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nclass PlayerSpawner extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\r\n    Start() {\r\n        // Grab the user id specified from logging into
+    {\r\n    Start() {\r\n        // Get the user id specified from logging into
     zepeto through the editor. \r\n        $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithUserId(ZEPETO_Character_Controller_1.ZepetoPlayers.instance,
     ZEPETO_World_1.WorldService.userId, new ZEPETO_Character_Controller_1.SpawnInfo(),
-    true);\r\n    }\r\n}\r\nexports.default = PlayerSpawner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGxheWVyU3Bhd24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJQbGF5ZXJTcGF3bi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFzRDtBQUN0RCw2RUFBcUc7QUFDckcsK0NBQTRDO0FBRTVDLE1BQXFCLGFBQWMsU0FBUSxxQ0FBcUI7SUFFNUQsS0FBSztRQUNELDJFQUEyRTtRQUMzRSxpRUFBdUIsc0JBQXNCLENBQTdDLDJDQUFhLENBQUMsUUFBUSxFQUF3QiwyQkFBWSxDQUFDLE1BQU0sRUFBRSxJQUFJLHVDQUFTLEVBQUUsRUFBRSxJQUFJLEVBQUU7SUFDOUYsQ0FBQztDQUNKO0FBTkQsZ0NBTUMifQ==","assetPath":"Assets/Sample/Single/Scripts/PlayerSpawn.ts","manifest":{"properties":[],"name":"PlayerSpawner","description":""},"isCompiled":true}'
-  typescriptHash: 8fb14c8aca037cd6f039846c9022c905
+    true);\r\n    }\r\n}\r\nexports.default = PlayerSpawner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGxheWVyU3Bhd24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJQbGF5ZXJTcGF3bi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFvRDtBQUNwRCw2RUFBbUc7QUFDbkcsK0NBQTBDO0FBRzFDLE1BQXFCLGFBQWMsU0FBUSxxQ0FBcUI7SUFFNUQsS0FBSztRQUNELDBFQUEwRTtRQUMxRSxpRUFBdUIsc0JBQXNCLENBQTdDLDJDQUFhLENBQUMsUUFBUSxFQUF3QiwyQkFBWSxDQUFDLE1BQU0sRUFBRSxJQUFJLHVDQUFTLEVBQUUsRUFBRSxJQUFJLEVBQUU7SUFDOUYsQ0FBQztDQUNKO0FBTkQsZ0NBTUMifQ==","assetPath":"Assets/Sample/Single/PlayerSpawn.ts","manifest":{"properties":[],"name":"PlayerSpawner","description":""},"isCompiled":true}'
+  typescriptHash: a46b80bd378f346455a13a5d911e4783
   onlyWriteTrigger: 0
