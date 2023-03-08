@@ -2,6 +2,7 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { SpawnInfo, ZepetoCharacter, ZepetoCharacterCreator } from 'ZEPETO.Character.Controller';
 import { Vector3, AnimationClip, WaitForSeconds } from 'UnityEngine';
 
+import NPCCreator from './NPCCreatorWithNameTag';
 export default class NPCActionContoller extends ZepetoScriptBehaviour {
 
     // ZEPETO ID of the NPC

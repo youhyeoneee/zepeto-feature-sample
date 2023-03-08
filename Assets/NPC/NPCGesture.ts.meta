@@ -1,0 +1,52 @@
+fileFormatVersion: 2
+guid: b5ab72c97571cdd4fbce5a2eacd8e02b
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nclass
+    NPCGesture extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n       
+    // Create a new instance of SpawnInfo and set its position and rotation based
+    on the object''s transform\r\n        const spawnInfo = new ZEPETO_Character_Controller_1.SpawnInfo();\r\n       
+    spawnInfo.position = this.transform.position;\r\n        spawnInfo.rotation =
+    this.transform.rotation;\r\n        // Use ZepetoCharacterCreator to create a
+    new character by ZEPETO ID and assign it to _npc variable\r\n        ZEPETO_Character_Controller_1.ZepetoCharacterCreator.CreateByZepetoId(this.zepetoId,
+    spawnInfo, (character) => {\r\n            this._npc = character;\r\n           
+    // Set the name tag\r\n            this.SetNameTag();\r\n            // Get the
+    Animator component from the NPC character and set its runtimeAnimatorController
+    to npcAnimator\r\n            this._npc.GetComponentInChildren($typeof(UnityEngine_1.Animator)).runtimeAnimatorController
+    = this.npcAnimator;\r\n        });\r\n    }\r\n    // Set the name tag\r\n   
+    SetNameTag() {\r\n        // Dynamically create the name tag canvas game object\r\n       
+    this._npcNameTagObject = UnityEngine_1.Object.Instantiate(this.nameTagPrefab);\r\n       
+    // Set the position of the name tag canvas game object above the NPC''s head\r\n       
+    this._npcNameTagObject.transform.position = UnityEngine_1.Vector3.op_Addition(this._npc.GetSocket(ZEPETO_Character_Controller_1.KnowSockets.HEAD_UPPER).position,
+    new UnityEngine_1.Vector3(0, this.nameTagYOffset, 0));\r\n        // Set the
+    text inside the name tag\r\n        this._npcNameTagText = this._npcNameTagObject.GetComponentInChildren($typeof(UnityEngine_UI_1.Text));\r\n       
+    UnityEngine_UI_1.LayoutRebuilder.ForceRebuildLayoutImmediate(this._npcNameTagObject.GetComponent($typeof(UnityEngine_1.RectTransform)));\r\n       
+    this._npcNameTagText.text = this.nameTag;\r\n        this._canvas = this._npcNameTagObject.GetComponent($typeof(UnityEngine_1.Canvas));\r\n       
+    this._cachedWorldCamera = UnityEngine_1.Object.FindObjectOfType($typeof(UnityEngine_1.Camera));\r\n       
+    this._canvas.worldCamera = this._cachedWorldCamera;\r\n    }\r\n    Update()
+    {\r\n        if (this._canvas != null) {\r\n            this.UpdateCanvasRotation();\r\n       
+    }\r\n    }\r\n    // Update the rotation of the name tag canvas to face the camera\r\n   
+    UpdateCanvasRotation() {\r\n        this._canvas.transform.LookAt(this._cachedWorldCamera.transform);\r\n       
+    this._canvas.transform.Rotate(0, 180, 0);\r\n    }\r\n}\r\nexports.default =
+    NPCGesture;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTlBDR2VzdHVyZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk5QQ0dlc3R1cmUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFDdEQsNkVBQThHO0FBQzlHLDZDQUE2STtBQUM3SSxtREFBdUQ7QUFFdkQsTUFBcUIsVUFBVyxTQUFRLHFDQUFxQjtJQXNCekQsS0FBSztRQUVELHVHQUF1RztRQUN2RyxNQUFNLFNBQVMsR0FBRyxJQUFJLHVDQUFTLEVBQUUsQ0FBQztRQUNsQyxTQUFTLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDO1FBQzdDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUM7UUFFN0MsbUdBQW1HO1FBQ25HLG9EQUFzQixDQUFDLGdCQUFnQixDQUFDLElBQUksQ0FBQyxRQUFRLEVBQUUsU0FBUyxFQUFFLENBQUMsU0FBMEIsRUFBRSxFQUFFO1lBQzdGLElBQUksQ0FBQyxJQUFJLEdBQUcsU0FBUyxDQUFDO1lBRXRCLG1CQUFtQjtZQUNuQixJQUFJLENBQUMsVUFBVSxFQUFFLENBQUM7WUFFbEIseUdBQXlHO1lBQ3pHLElBQUksQ0FBQyxJQUFJLENBQUMsc0JBQXNCLFNBQUMsc0JBQVEsR0FBSSx5QkFBeUIsR0FBRyxJQUFJLENBQUMsV0FBVyxDQUFDO1FBQzlGLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVELG1CQUFtQjtJQUNuQixVQUFVO1FBQ04scURBQXFEO1FBQ3JELElBQUksQ0FBQyxpQkFBaUIsR0FBRyxvQkFBTSxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsYUFBYSxDQUFlLENBQUM7UUFFOUUsMkVBQTJFO1FBQzNFLElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxTQUFTLENBQUMsUUFBUSxHQUFHLHFCQUFPLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLHlDQUFXLENBQUMsVUFBVSxDQUFDLENBQUMsUUFBUSxFQUFFLElBQUkscUJBQU8sQ0FBQyxDQUFDLEVBQUUsSUFBSSxDQUFDLGNBQWMsRUFBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO1FBRTdKLG1DQUFtQztRQUNuQyxJQUFJLENBQUMsZUFBZSxHQUFHLElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxzQkFBc0IsU0FBQyxxQkFBSSxFQUFHLENBQUM7UUFDN0UsZ0NBQWUsQ0FBQywyQkFBMkIsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsWUFBWSxTQUFDLDJCQUFhLEdBQUksQ0FBQztRQUNsRyxJQUFJLENBQUMsZUFBZSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUMsT0FBTyxDQUFDO1FBRXpDLElBQUksQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFDLGlCQUFpQixDQUFDLFlBQVksU0FBQyxvQkFBTSxFQUFHLENBQUM7UUFDN0QsSUFBSSxDQUFDLGtCQUFrQixHQUFHLG9CQUFNLENBQUMsZ0JBQWdCLFNBQUMsb0JBQU0sRUFBRyxDQUFDO1FBQzVELElBQUksQ0FBQyxPQUFPLENBQUMsV0FBVyxHQUFHLElBQUksQ0FBQyxrQkFBa0IsQ0FBQztJQUN2RCxDQUFDO0lBRU8sTUFBTTtRQUNWLElBQUksSUFBSSxDQUFDLE9BQU8sSUFBSSxJQUFJLEVBQUU7WUFDdEIsSUFBSSxDQUFDLG9CQUFvQixFQUFFLENBQUM7U0FDL0I7SUFDTCxDQUFDO0lBRUQsZ0VBQWdFO0lBQ3hELG9CQUFvQjtRQUN4QixJQUFJLENBQUMsT0FBTyxDQUFDLFNBQVMsQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLGtCQUFrQixDQUFDLFNBQVMsQ0FBQyxDQUFDO1FBQ2pFLElBQUksQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQyxDQUFDLEVBQUUsR0FBRyxFQUFFLENBQUMsQ0FBQyxDQUFDO0lBQzdDLENBQUM7Q0FDSjtBQXRFRCw2QkFzRUMifQ==","assetPath":"Assets/NPC/NPCGesture.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"zepetoId","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"nameTag","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"nameTagPrefab","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"nameTagYOffset","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.AnimationModule","name":"npcAnimator","type":"UnityEngine.RuntimeAnimatorController","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"NPCGesture","description":""},"isCompiled":true}'
+  typescriptHash: 30561225bb1d84b11390d30f02d1fe7a
+  onlyWriteTrigger: 0

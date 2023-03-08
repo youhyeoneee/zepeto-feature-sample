@@ -1,0 +1,57 @@
+fileFormatVersion: 2
+guid: 4f2dcb4511e270d4185a8929631f59c4
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst
+    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
+    UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst UnityEngine_UI_1 = require(\\\"UnityEngine.UI\\\");\\r\\nclass
+    NPCInteraction extends ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    Start()
+    {\\r\\n        // Create a new instance of SpawnInfo and set its position and
+    rotation based on the object's transform\\r\\n        const spawnInfo = new ZEPETO_Character_Controller_1.SpawnInfo();\\r\\n       
+    spawnInfo.position = this.transform.position;\\r\\n        spawnInfo.rotation
+    = this.transform.rotation;\\r\\n        // Use ZepetoCharacterCreator to create
+    a new character by ZEPETO ID and assign it to _npc variable\\r\\n        ZEPETO_Character_Controller_1.ZepetoCharacterCreator.CreateByZepetoId(this.zepetoId,
+    spawnInfo, (character) => {\\r\\n            this._npc = character;\\r\\n           
+    // Set the speech bubble\\r\\n            this.SetBubble();\\r\\n        });\\r\\n       
+    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\\r\\n            this._zepetoCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\\r\\n       
+    });\\r\\n    }\\r\\n    // Check if Player character enter collider\\r\\n   
+    OnTriggerEnter(collider) {\\r\\n        if (this._zepetoCharacter == null ||
+    UnityEngine_1.GameObject.op_Inequality(collider.gameObject, this._zepetoCharacter.gameObject))
+    {\\r\\n            return;\\r\\n        }\\r\\n        UnityEngine_UI_1.LayoutRebuilder.ForceRebuildLayoutImmediate(this._speechBubbleText.GetComponent($typeof(UnityEngine_1.RectTransform)));\\r\\n       
+    this.SetBubbleText(this.changedSpeechBubbleText);\\r\\n    }\\r\\n    OnTriggerExit(collider)
+    {\\r\\n        if (this._zepetoCharacter == null || UnityEngine_1.GameObject.op_Inequality(collider.gameObject,
+    this._zepetoCharacter.gameObject)) {\\r\\n            return;\\r\\n        }\\r\\n       
+    UnityEngine_UI_1.LayoutRebuilder.ForceRebuildLayoutImmediate(this._speechBubbleText.GetComponent($typeof(UnityEngine_1.RectTransform)));\\r\\n       
+    this.SetBubbleText(this.speechBubbleText);\\r\\n    }\\r\\n    // Set the speech
+    bubble\\r\\n    SetBubble() {\\r\\n        // Dynamically create the speech bubble
+    canvas game object\\r\\n        this._speechBubbleObject = UnityEngine_1.Object.Instantiate(this.speechBubblePrefab);\\r\\n       
+    // Set the position of the speech bubble canvas game object above the NPC's head\\r\\n       
+    this._speechBubbleObject.transform.position = UnityEngine_1.Vector3.op_Addition(this._npc.GetSocket(ZEPETO_Character_Controller_1.KnowSockets.HEAD_UPPER).position,
+    new UnityEngine_1.Vector3(0, this.speechBubbleYOffset, 0));\\r\\n        // Set
+    the text inside the speech bubble\\r\\n        this._speechBubbleText = this._speechBubbleObject.GetComponentInChildren($typeof(UnityEngine_UI_1.Text));\\r\\n       
+    UnityEngine_UI_1.LayoutRebuilder.ForceRebuildLayoutImmediate(this._speechBubbleText.GetComponent($typeof(UnityEngine_1.RectTransform)));\\r\\n       
+    this.SetBubbleText(this.speechBubbleText);\\r\\n    }\\r\\n    // Open the speech
+    bubble canvas and set the text\\r\\n    SetBubbleText(bubbleText) {\\r\\n       
+    this._speechBubbleObject.SetActive(true);\\r\\n        this._speechBubbleText.text
+    = bubbleText;\\r\\n    }\\r\\n}\\r\\nexports.default = NPCInteraction;\\r\\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTlBDSW50ZXJhY3Rpb24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJOUENJbnRlcmFjdGlvbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFzRDtBQUN0RCw2RUFBNkg7QUFDN0gsNkNBQXVKO0FBQ3ZKLG1EQUF1RDtBQUV2RCxNQUFxQixjQUFlLFNBQVEscUNBQXFCO0lBc0I3RCxLQUFLO1FBQ0QsdUdBQXVHO1FBQ3ZHLE1BQU0sU0FBUyxHQUFHLElBQUksdUNBQVMsRUFBRSxDQUFDO1FBQ2xDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUM7UUFDN0MsU0FBUyxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQztRQUU3QyxtR0FBbUc7UUFDbkcsb0RBQXNCLENBQUMsZ0JBQWdCLENBQUMsSUFBSSxDQUFDLFFBQVEsRUFBRSxTQUFTLEVBQUUsQ0FBQyxTQUEwQixFQUFFLEVBQUU7WUFDN0YsSUFBSSxDQUFDLElBQUksR0FBRyxTQUFTLENBQUM7WUFFdEIsd0JBQXdCO1lBQ3hCLElBQUksQ0FBQyxTQUFTLEVBQUUsQ0FBQztRQUNyQixDQUFDLENBQUMsQ0FBQTtRQUVGLDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDdkQsSUFBSSxDQUFDLGdCQUFnQixHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDO1FBQ3RGLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVELDJDQUEyQztJQUMzQyxjQUFjLENBQUMsUUFBa0I7UUFDN0IsSUFBSSxJQUFJLENBQUMsZ0JBQWdCLElBQUksSUFBSSxJQTlDZ0Isd0JBQVUsQ0FrRmk3TyxhQUFjLENBcENyOU8sUUFBUSxDQUFDLFVBQVUsRUFBSSxJQUFJLENBQUMsZ0JBQWdCLENBQUMsVUFBVSxDQUFBLEVBQUU7WUFDMUYsT0FBTztTQUNWO1FBQ0QsZ0NBQWUsQ0FBQywyQkFBMkIsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsWUFBWSxTQUFDLDJCQUFhLEdBQUksQ0FBQztRQUNsRyxJQUFJLENBQUMsYUFBYSxDQUFDLElBQUksQ0FBQyx1QkFBdUIsQ0FBQyxDQUFDO0lBQ3JELENBQUM7SUFFRCxhQUFhLENBQUMsUUFBa0I7UUFDNUIsSUFBSSxJQUFJLENBQUMsZ0JBQWdCLElBQUksSUFBSSxJQXREZ0Isd0JBQVUsQ0FrRmk3TyxhQUFjLENBNUJyOU8sUUFBUSxDQUFDLFVBQVUsRUFBSSxJQUFJLENBQUMsZ0JBQWdCLENBQUMsVUFBVSxDQUFBLEVBQUU7WUFDMUYsT0FBTztTQUNWO1FBQ0QsZ0NBQWUsQ0FBQywyQkFBMkIsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsWUFBWSxTQUFDLDJCQUFhLEdBQUksQ0FBQztRQUNsRyxJQUFJLENBQUMsYUFBYSxDQUFDLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFDO0lBQzlDLENBQUM7SUFHRCx3QkFBd0I7SUFDeEIsU0FBUztRQUNMLDBEQUEwRDtRQUMxRCxJQUFJLENBQUMsbUJBQW1CLEdBQUcsb0JBQU0sQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLGtCQUFrQixDQUFlLENBQUM7UUFFckYsZ0ZBQWdGO1FBQ2hGLElBQUksQ0FBQyxtQkFBbUIsQ0FBQyxTQUFTLENBQUMsUUFBUSxHQUFHLHFCQUFPLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLHlDQUFXLENBQUMsVUFBVSxDQUFDLENBQUMsUUFBUSxFQUFFLElBQUkscUJBQU8sQ0FBQyxDQUFDLEVBQUUsSUFBSSxDQUFDLG1CQUFtQixFQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7UUFFcEssd0NBQXdDO1FBQ3hDLElBQUksQ0FBQyxpQkFBaUIsR0FBRyxJQUFJLENBQUMsbUJBQW1CLENBQUMsc0JBQXNCLFNBQUMscUJBQUksRUFBRyxDQUFDO1FBQ2pGLGdDQUFlLENBQUMsMkJBQTJCLENBQUMsSUFBSSxDQUFDLGlCQUFpQixDQUFDLFlBQVksU0FBQywyQkFBYSxHQUFJLENBQUM7UUFDbEcsSUFBSSxDQUFDLGFBQWEsQ0FBQyxJQUFJLENBQUMsZ0JBQWdCLENBQUMsQ0FBQztJQUM5QyxDQUFDO0lBRUQsaURBQWlEO0lBQ2pELGFBQWEsQ0FBQyxVQUFrQjtRQUM1QixJQUFJLENBQUMsbUJBQW1CLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQ3pDLElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxJQUFJLEdBQUcsVUFBVSxDQUFDO0lBQzdDLENBQUM7Q0FFSjtBQS9FRCxpQ0ErRUMifQ==\",\"assetPath\":\"Assets/NPC/B\uC548/NPCInteraction.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"mscorlib\",\"name\":\"zepetoId\",\"type\":\"System.String\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"speechBubbleText\",\"type\":\"System.String\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"changedSpeechBubbleText\",\"type\":\"System.String\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"speechBubblePrefab\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"speechBubbleYOffset\",\"type\":\"System.Single\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"NPCInteraction\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: e83453e78a1c66e7166bc77e4db5dec5
+  onlyWriteTrigger: 0

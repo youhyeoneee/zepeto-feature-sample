@@ -13,6 +13,9 @@ export default class extends Sandbox {
 
     onCreate(options: SandboxOptions) {
 
+        this.onMessage<string>("hello", (client, message) => {
+        });
+        
         // Room 객체가 생성될 때 호출됩니다.
         // Room 객체의 상태나 데이터 초기화를 처리 한다.
 

@@ -1,0 +1,39 @@
+fileFormatVersion: 2
+guid: 0d150d8a810b37f4081324982c68098c
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst
+    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
+    UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nclass NPCJump extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\\r\\n    Start() {\\r\\n        // Create a new instance of SpawnInfo and set
+    its position and rotation based on the object's transform\\r\\n        const
+    spawnInfo = new ZEPETO_Character_Controller_1.SpawnInfo();\\r\\n        spawnInfo.position
+    = this.transform.position;\\r\\n        spawnInfo.rotation = this.transform.rotation;\\r\\n       
+    // Use ZepetoCharacterCreator to create a new character by ZEPETO ID and assign
+    it to _npc variable\\r\\n        ZEPETO_Character_Controller_1.ZepetoCharacterCreator.CreateByZepetoId(this.zepetoId,
+    spawnInfo, (character) => {\\r\\n            this._npc = character;\\r\\n           
+    this.StartCoroutine(this.JumpCoroutine());\\r\\n        });\\r\\n    }\\r\\n   
+    *JumpCoroutine() {\\r\\n        // Infinite loop to continuously\\r\\n       
+    while (true) {\\r\\n            // Call the Jump() method of the ZepetoCharacter
+    to make it jump\\r\\n            this._npc.Jump();\\r\\n            // Wait for
+    5 seconds \\r\\n            yield new UnityEngine_1.WaitForSeconds(5);\\r\\n       
+    }\\r\\n    }\\r\\n}\\r\\nexports.default = NPCJump;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTlBDSnVtcC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk5QQ0p1bXAudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFDdEQsNkVBQWlHO0FBQ2pHLDZDQUEyQztBQUUzQyxNQUFxQixPQUFRLFNBQVEscUNBQXFCO0lBT3RELEtBQUs7UUFDRCx1R0FBdUc7UUFDdkcsTUFBTSxTQUFTLEdBQUcsSUFBSSx1Q0FBUyxFQUFFLENBQUM7UUFDbEMsU0FBUyxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQztRQUM3QyxTQUFTLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDO1FBRTdDLG1HQUFtRztRQUNuRyxvREFBc0IsQ0FBQyxnQkFBZ0IsQ0FBQyxJQUFJLENBQUMsUUFBUSxFQUFFLFNBQVMsRUFBRSxDQUFDLFNBQTBCLEVBQUUsRUFBRTtZQUM3RixJQUFJLENBQUMsSUFBSSxHQUFHLFNBQVMsQ0FBQztZQUV0QixJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxhQUFhLEVBQUUsQ0FBQyxDQUFDO1FBQzlDLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVELENBQUMsYUFBYTtRQUNWLGdDQUFnQztRQUNoQyxPQUFPLElBQUksRUFBRTtZQUNULGdFQUFnRTtZQUNoRSxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksRUFBRSxDQUFDO1lBRWpCLHNCQUFzQjtZQUN0QixNQUFNLElBQUksNEJBQWMsQ0FBQyxDQUFDLENBQUMsQ0FBQztTQUMvQjtJQUNMLENBQUM7Q0FDSjtBQS9CRCwwQkErQkMifQ==\",\"assetPath\":\"Assets/NPC/B\uC548/NPCJump.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"mscorlib\",\"name\":\"zepetoId\",\"type\":\"System.String\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"NPCJump\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: a59acbe7aab7b279e9aebe4e05f686ff
+  onlyWriteTrigger: 0
