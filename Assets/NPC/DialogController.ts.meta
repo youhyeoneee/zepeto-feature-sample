@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 0108ad529cdb2c24fb28b784ab6c9f16
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nclass DialogController extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    OnEnable() {\r\n        this.StartCoroutine(this.Typing(this.dialogString));\r\n   
+    }\r\n    *Typing(text) {\r\n        this.dialogText.text = \"\";\r\n        for
+    (var i = 0; i < text.length; i++) {\r\n            this.dialogText.text += text[i];\r\n           
+    yield new UnityEngine_1.WaitForSeconds(0.1);\r\n        }\r\n    }\r\n}\r\nexports.default
+    = DialogController;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRGlhbG9nQ29udHJvbGxlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkRpYWxvZ0NvbnRyb2xsZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBcUQ7QUFFckQsNkNBQTJDO0FBRTNDLE1BQXFCLGdCQUFpQixTQUFRLHFDQUFxQjtJQUcvRCxRQUFRO1FBQ0osSUFBSSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsTUFBTSxDQUFDLElBQUksQ0FBQyxZQUFZLENBQUMsQ0FBQyxDQUFDO0lBQ3hELENBQUM7SUFFRCxDQUFDLE1BQU0sQ0FBQyxJQUFZO1FBRWhCLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxHQUFHLEVBQUUsQ0FBQztRQUMxQixLQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsSUFBSSxDQUFDLE1BQU0sRUFBRSxDQUFDLEVBQUUsRUFBRTtZQUNsQyxJQUFJLENBQUMsVUFBVSxDQUFDLElBQUksSUFBSSxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUM7WUFDaEMsTUFBTSxJQUFJLDRCQUFjLENBQUMsR0FBRyxDQUFDLENBQUM7U0FDakM7SUFDTCxDQUFDO0NBRUo7QUFoQkQsbUNBZ0JDIn0=","assetPath":"Assets/NPC/DialogController.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"dialogText","type":"UnityEngine.UI.Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"dialogString","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"DialogController","description":""},"isCompiled":true}'
+  typescriptHash: dc2ad65294430d127f279c58d964cb06
+  onlyWriteTrigger: 0

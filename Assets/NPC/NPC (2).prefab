@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6076469119094247943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6076469119094247939}
+  - component: {fileID: 6076469119094247940}
+  - component: {fileID: 6076469119094247941}
+  - component: {fileID: 6076469119094247942}
+  m_Layer: 0
+  m_Name: NPC (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6076469119094247939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076469119094247943}
+  m_LocalRotation: {x: -0, y: 0.6777015, z: -0, w: -0.73533714}
+  m_LocalPosition: {x: 4.221, y: 0, z: 4.374}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 274.671, z: 0}
+--- !u!114 &6076469119094247940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076469119094247943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - zepetoId
+    - nameTag
+    - nameTagPrefab
+    - nameTagYOffset
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 6946227296563869421, guid: 29211197545fd77448ee994578523e55, type: 3}
+    - {fileID: 0}
+    values:
+    - '{"type":"System.String, mscorlib","value":"dbgus0311"}'
+    - '{"type":"System.String, mscorlib","value":"[NPC]GIRL"}'
+    - 
+    - '{"type":"System.Single, mscorlib","value":"0.4"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: bf4ba61d72977413e90a9767a76882b8, type: 3}
+    isExpaned: 0
+--- !u!114 &6076469119094247941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076469119094247943}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - isGestureEnabled
+    - gesture
+    - zepetoId
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 7400000, guid: ffcc77a915444454f920fc6a6b8cfe69, type: 2}
+    - {fileID: 0}
+    values:
+    - '{"type":"System.Boolean, mscorlib","value":"True"}'
+    - 
+    - '{"type":"System.String, mscorlib","value":"tester"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: ce8714a09b80844098e9eb65bcf639d6, type: 3}
+    isExpaned: 0
+--- !u!114 &6076469119094247942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076469119094247943}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - zepetoId
+    - npcAnimator
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 9100000, guid: 3e5b6aa63dbf4164a8f4c8a85b1bee90, type: 2}
+    values:
+    - '{"type":"System.String, mscorlib","value":"tester"}'
+    - 
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: be9586f958b285540ba4aeb5a9cf0fb0, type: 3}
+    isExpaned: 0

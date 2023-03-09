@@ -46,7 +46,12 @@ export default class extends Sandbox {
    
     
     async onJoin(client: SandboxPlayer) {
-
+        
+        if( this.loadPlayer(client.sessionId) != undefined) {
+            var masterClient = this.loadPlayer(client.sessionId);
+            console.log(masterClient.sessionId);
+        }
+        
         // schemas.json 에서 정의한 player 객체를 생성 후 초기값 설정.
         console.log(`[OnJoin] sessionId : ${client.sessionId}, HashCode : ${client.hashCode}, userId : ${client.userId}`)
 
