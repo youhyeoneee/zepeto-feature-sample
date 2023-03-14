@@ -12,7 +12,6 @@
         "noImplicitThis": true,
         "alwaysStrict": true,
         "noUnusedLocals": true,
-        "removeComments": true,
-        "forceConsistentCasingInFileNames": true,
+        "removeComments": true
     }
 }

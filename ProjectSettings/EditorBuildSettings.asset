@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Teleport/TeleportMulti.unity
+    guid: 6dc87db77f44c480d9e52c3d396f0225
+  - enabled: 1
+    path: Assets/Scenes/SampleSceneV2.unity
+    guid: 414fca8825dd747199d5b3bc295c3789
   m_configObjects: {}
