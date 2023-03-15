@@ -5,10 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Teleport/TeleportMulti.unity
     guid: 6dc87db77f44c480d9e52c3d396f0225
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleSceneV2.unity
     guid: 414fca8825dd747199d5b3bc295c3789
+  - enabled: 0
+    path: Assets/Attach/AttachMulti.unity
+    guid: 162bb37271cde46049a4c6e01dbb2ab2
+  - enabled: 0
+    path: Assets/Interaction/InteractionSingle.unity
+    guid: 821e73918d6ce419084847913f74beda
+  - enabled: 1
+    path: Assets/Interaction/InteractionMulti.unity
+    guid: 3723ca3b9457b48248f9987c9438ed36
   m_configObjects: {}

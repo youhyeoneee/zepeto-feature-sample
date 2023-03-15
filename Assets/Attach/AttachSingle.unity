@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 585939127}
   - component: {fileID: 585939126}
   m_Layer: 0
-  m_Name: Attach_basic
+  m_Name: AttachObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,14 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     keys:
-    - itemPrefab
     - bodyBone
+    - prefItem
     unityValues:
-    - {fileID: 3456191643007692820, guid: 74a64458415ce430b8c8f422ff8e04b6, type: 3}
     - {fileID: 0}
+    - {fileID: 4332211510344041380, guid: 74a64458415ce430b8c8f422ff8e04b6, type: 3}
     values:
-    - 
     - '{"type":"UnityEngine.HumanBodyBones, UnityEngine.AnimationModule","value":"{\"value__\":17}"}'
+    - 
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 142081675c25145f79895843444614a2, type: 3}
@@ -174,7 +174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585939125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 1.1100001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -379,11 +379,11 @@ MonoBehaviour:
   setting: {fileID: 0}
   cameraData:
     cameraPrefab: {fileID: 5806182858035002866, guid: 5be4eddc5b02f4ec0a07a69db26df962, type: 3}
-    maxZoomDistance: 15
-    minZoomDistance: 1
+    maxZoomDistance: 2
+    minZoomDistance: 2
     maxPitch: 80
     minPitch: -80
-    offset: {x: 0, y: 1, z: 0}
+    offset: {x: 0, y: -0.2, z: 0}
     lockXAxis: 0
     layer:
       serializedVersion: 2
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 2094601152}
   - component: {fileID: 2094601151}
   m_Layer: 0
-  m_Name: Attach_pillow
+  m_Name: AttachObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -633,14 +633,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     keys:
-    - itemPrefab
     - bodyBone
+    - prefItem
     unityValues:
-    - {fileID: 4099964017339950730, guid: 54d8ae8fc6c674e52a85391f9ddfdc12, type: 3}
     - {fileID: 0}
+    - {fileID: 4099964017339950730, guid: 54d8ae8fc6c674e52a85391f9ddfdc12, type: 3}
     values:
-    - 
     - '{"type":"UnityEngine.HumanBodyBones, UnityEngine.AnimationModule","value":"{\"value__\":9}"}'
+    - 
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 142081675c25145f79895843444614a2, type: 3}
@@ -653,7 +653,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094601150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 1.1100001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

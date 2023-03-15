@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 6523145d41e7f47569f369b9e88a7a5a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nclass AttachObject extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Start() {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            // Find the local player and set it to _localCharacter.\r\n           
+    this._localCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n           
+    // Get the _localCharacter''s animator component.\r\n            const animator
+    = this._localCharacter.ZepetoAnimator;\r\n            // Get the position of
+    the bone to attach the object to.\r\n            const bone = animator.GetBoneTransform(this.bodyBone);\r\n           
+    // Create the object prefab.\r\n            UnityEngine_1.Object.Instantiate(this.prefItem,
+    bone);\r\n        });\r\n    }\r\n}\r\nexports.default = AttachObject;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQXR0YWNoT2JqZWN0TXVsdGkuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJBdHRhY2hPYmplY3RNdWx0aS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFzRDtBQUN0RCw2RUFBNkU7QUFDN0UsNkNBQXNGO0FBRXRGLE1BQXFCLFlBQWEsU0FBUSxxQ0FBcUI7SUFTM0QsS0FBSztRQUVELDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDdkQsdURBQXVEO1lBQ3ZELElBQUksQ0FBQyxlQUFlLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7WUFDakYsZ0RBQWdEO1lBQ2hELE1BQU0sUUFBUSxHQUFhLElBQUksQ0FBQyxlQUFlLENBQUMsY0FBYyxDQUFDO1lBQy9ELHdEQUF3RDtZQUN4RCxNQUFNLElBQUksR0FBYyxRQUFRLENBQUMsZ0JBQWdCLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxDQUFDO1lBQ2pFLDRCQUE0QjtZQUM1QixvQkFBTSxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsUUFBUSxFQUFFLElBQUksQ0FBZSxDQUFDO1FBQzFELENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztDQUNKO0FBdEJELCtCQXNCQyJ9","assetPath":"Assets/Attach/AttachObjectMulti.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"prefItem","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.AnimationModule","name":"bodyBone","type":"UnityEngine.HumanBodyBones","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"AttachObject","description":""},"isCompiled":true}'
+  typescriptHash: 4d9481bf27874622a6bddf126e3ff489
+  onlyWriteTrigger: 0
