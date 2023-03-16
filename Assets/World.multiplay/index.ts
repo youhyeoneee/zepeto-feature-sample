@@ -170,6 +170,18 @@ export default class extends Sandbox {
                 this.broadcast(MESSAGE.FirstPlayerGetIn, gameEndTime);
             }
         });
+
+        this.onMessage(MESSAGE.OnAttachItem, (client, message) => {
+            let attachItemInfo: AttachItemInfo = {
+                sessionId: client.sessionId,
+                itemName: message.itemName,
+                bone: message.bone
+            }
+            
+            console.log("Attach >> ", attachItemInfo.sessionId, attachItemInfo.itemName, attachItemInfo.bone)
+
+            this.broadcast(MESSAGE.OnAttachItem, attachItemInfo);
+        });
     }
 
     onJoin(client: SandboxPlayer) {
@@ -226,6 +238,13 @@ interface GameReport{
     playerLapTime : number;
 }
 
+// Attach item
+interface AttachItemInfo {
+    sessionId: string,
+    itemName: string,
+    bone: number,
+}
+
 enum MESSAGE {
     SyncPlayer = "SyncPlayer",
     SyncTransform = "SyncTransform",
@@ -253,6 +272,9 @@ enum MESSAGE {
     FinishPlayer = "FinishPlayer",
     FirstPlayerGetIn = "FirstPlayerGetIn",
     CountDownStart = "CountDownStart",
-    ResponseGameReport = "ResponseGameReport"
+    ResponseGameReport = "ResponseGameReport",
+    
+    // Attach Item
+    OnAttachItem = "OnAttachItem"
 }
 

@@ -8,6 +8,8 @@ import SyncIndexManager from "../Common/SyncIndexManager";
 import MultiplayManager, { GameObjectStatus } from '../Common/MultiplayManager';
 
 export default class TransformSyncHelper extends ZepetoScriptBehaviour {
+    
+    public onwerSessionId:string;
     public UpdateOwnerType: UpdateOwner = UpdateOwner.Undefine;
 
     /** Sync Options **/
@@ -127,6 +129,8 @@ export default class TransformSyncHelper extends ZepetoScriptBehaviour {
 
     // A function that changes the owner of the update.
     public ChangeOwner(ownerSessionId:string){
+        this.onwerSessionId = ownerSessionId;
+        
         if(null == this.room)
             this.room = MultiplayManager.instance.room;
         if(this.room.SessionId == ownerSessionId && !this.m_isOwner) {

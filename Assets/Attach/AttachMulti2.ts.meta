@@ -1,0 +1,55 @@
+fileFormatVersion: 2
+guid: 435a531217a9f4dc4a1c20ad396f604f
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst
+    ZEPETO_World_1 = require(\\\"ZEPETO.World\\\");\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
+    ZEPETO_Multiplay_1 = require(\\\"ZEPETO.Multiplay\\\");\\r\\nconst MultiplayManager_1
+    = require(\\\"../ZepetoScripts/MultiplaySync/Common/MultiplayManager\\\");\\r\\nclass
+    AttachMulti2 extends ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    constructor()
+    {\\r\\n        super(...arguments);\\r\\n        this.bodyBone = UnityEngine_1.HumanBodyBones.Neck;\\r\\n   
+    }\\r\\n    Start() {\\r\\n        this.multiplay = UnityEngine_1.Object.FindObjectOfType($typeof(ZEPETO_World_1.ZepetoWorldMultiplay));\\r\\n       
+    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\\r\\n            // Find the local player and set it to _localCharacter.\\r\\n           
+    this._localCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\\r\\n           
+    this.SendItem();\\r\\n        });\\r\\n        // For MultiPlay\\r\\n       
+    this.multiplay.add_RoomCreated((room) => {\\r\\n            this._room = room;\\r\\n           
+    // 2. \uC11C\uBC84 -> \u3147\u314B\u3147\u314B\\r\\n            this._room.AddMessageHandler(\\\"OnAttachItem\\\",
+    (message) => {\\r\\n                let attachItemInfo = {\\r\\n                   
+    sessionId: message.sessionId,\\r\\n                    itemName: message.itemName,\\r\\n                   
+    bone: message.bone\\r\\n                };\\r\\n                console.log(\\\">>\\\",
+    attachItemInfo.sessionId, attachItemInfo.itemName, attachItemInfo.bone);\\r\\n               
+    this.StartCoroutine(this.CreateObject(attachItemInfo));\\r\\n            });\\r\\n       
+    });\\r\\n    }\\r\\n    *CreateObject(info) {\\r\\n        yield new UnityEngine_1.WaitUntil(()
+    => ZEPETO_Character_Controller_1.ZepetoPlayers.instance.HasPlayer(info.sessionId));\\r\\n   
+    }\\r\\n    // 1. \uB9CC\uB4E4\uC5B4\uB77C -> \uC11C\uBC84\\r\\n    SendItem()
+    {\\r\\n        // Get the _localCharacter's animator component.\\r\\n       
+    const animator = this._localCharacter.ZepetoAnimator;\\r\\n        // Get the
+    position of the bone to attach the object to.\\r\\n        const boneTransform
+    = animator.GetBoneTransform(this.bodyBone);\\r\\n        // Create the object
+    prefab.\\r\\n        MultiplayManager_1.default.instance.Instantiate(this.prefItem.name,
+    this._room.SessionId, boneTransform.position, this.prefItem.transform.rotation);\\r\\n       
+    const data = new ZEPETO_Multiplay_1.RoomData();\\r\\n        data.Add(\\\"itemName\\\",
+    this.prefItem.name);\\r\\n        data.Add(\\\"bone\\\", this.bodyBone);\\r\\n       
+    this._room.Send(\\\"OnAttachItem\\\", data.GetObject());\\r\\n    }\\r\\n}\\r\\nexports.default
+    = AttachMulti2;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQXR0YWNoTXVsdGkyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQXR0YWNoTXVsdGkyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXFEO0FBQ3JELCtDQUFvRDtBQUNwRCw2Q0FPcUI7QUFDckIsNkVBR3FDO0FBQ3JDLHVEQUcwQjtBQUUxQiw2RkFBcUY7QUFXckYsTUFBcUIsWUFBYSxTQUFRLHFDQUFxQjtJQUEvRDs7UUFHVyxhQUFRLEdBQW1CLDRCQUFjLENBQUMsSUFBSSxDQUFDO0lBeUQxRCxDQUFDO0lBbkRHLEtBQUs7UUFDRCxJQUFJLENBQUMsU0FBUyxHQUFHLG9CQUFNLENBQUMsZ0JBQWdCLFNBQUMsbUNBQW9CLEVBQUcsQ0FBQztRQUVqRSwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZELHVEQUF1RDtZQUN2RCxJQUFJLENBQUMsZUFBZSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDO1lBQ2pGLElBQUksQ0FBQyxRQUFRLEVBQUUsQ0FBQztRQUNwQixDQUFDLENBQUMsQ0FBQztRQUVILGdCQUFnQjtRQUNoQixJQUFJLENBQUMsU0FBUyxpQkFBZ0IsQ0FBQyxJQUFVLEVBQUUsRUFBRTtZQUN6QyxJQUFJLENBQUMsS0FBSyxHQUFHLElBQUksQ0FBQztZQUNsQixnQkFBZ0I7WUFDaEIsSUFBSSxDQUFDLEtBQUssQ0FBQyxpQkFBaUIsQ0FBQyxjQUFjLEVBQUUsQ0FBQyxPQUF1QixFQUFFLEVBQUU7Z0JBQ3JFLElBQUksY0FBYyxHQUFtQjtvQkFDakMsU0FBUyxFQUFFLE9BQU8sQ0FBQyxTQUFTO29CQUM1QixRQUFRLEVBQUUsT0FBTyxDQUFDLFFBQVE7b0JBQzFCLElBQUksRUFBRSxPQUFPLENBQUMsSUFBSTtpQkFDckIsQ0FBQztnQkFFRixPQUFPLENBQUMsR0FBRyxDQUFDLElBQUksRUFBRSxjQUFjLENBQUMsU0FBUyxFQUFFLGNBQWMsQ0FBQyxRQUFRLEVBQUUsY0FBYyxDQUFDLElBQUksQ0FBQyxDQUFDO2dCQUMxRixJQUFJLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxZQUFZLENBQUMsY0FBYyxDQUFDLENBQUMsQ0FBQztZQUMzRCxDQUFDLENBQUMsQ0FBQztRQUNQLENBQUMsRUFBQztJQUVOLENBQUM7SUFFRCxDQUFDLFlBQVksQ0FBQyxJQUFvQjtRQUM5QixNQUFNLElBQUksdUJBQVMsQ0FBQyxHQUFFLEVBQUUsQ0FBQSwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUM7SUFFOUUsQ0FBQztJQUdELGdCQUFnQjtJQUNoQixRQUFRO1FBRUosZ0RBQWdEO1FBQ2hELE1BQU0sUUFBUSxHQUFhLElBQUksQ0FBQyxlQUFlLENBQUMsY0FBYyxDQUFDO1FBQy9ELHdEQUF3RDtRQUN4RCxNQUFNLGFBQWEsR0FBYyxRQUFRLENBQUMsZ0JBQWdCLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxDQUFDO1FBRTFFLDRCQUE0QjtRQUM1QiwwQkFBZ0IsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxRQUFRLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxLQUFLLENBQUMsU0FBUyxFQUFFLGFBQWEsQ0FBQyxRQUFRLEVBQUUsSUFBSSxDQUFDLFFBQVEsQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDLENBQUM7UUFHMUksTUFBTSxJQUFJLEdBQUcsSUFBSSwyQkFBUSxFQUFFLENBQUM7UUFDNUIsSUFBSSxDQUFDLEdBQUcsQ0FBQyxVQUFVLEVBQUUsSUFBSSxDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUN6QyxJQUFJLENBQUMsR0FBRyxDQUFDLE1BQU0sRUFBRSxJQUFJLENBQUMsUUFBUSxDQUFDLENBQUM7UUFDaEMsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsY0FBYyxFQUFFLElBQUksQ0FBQyxTQUFTLEVBQUUsQ0FBQyxDQUFDO0lBQ3RELENBQUM7Q0FFSjtBQTVERCwrQkE0REMifQ==\",\"assetPath\":\"Assets/Attach/AttachMulti2.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"ZEPETO.World\",\"name\":\"multiplay\",\"type\":\"ZEPETO.World.ZepetoWorldMultiplay\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.AnimationModule\",\"name\":\"bodyBone\",\"type\":\"UnityEngine.HumanBodyBones\",\"isArray\":false,\"initValue\":[\"Neck\"],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"prefItem\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"AttachMulti2\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: c9970e2583431c379af1a5708c9f3bdb
+  onlyWriteTrigger: 0
