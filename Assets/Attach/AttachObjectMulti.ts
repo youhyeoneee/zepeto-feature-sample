@@ -8,7 +8,9 @@ import {
     GameObject,
     HumanBodyBones,
     Object,
+    Quaternion,
     Transform,
+    Vector3,
     WaitUntil
 } from 'UnityEngine';
 import {
@@ -37,8 +39,6 @@ export default class AttachObject extends ZepetoScriptBehaviour {
     
     private _localCharacter: ZepetoCharacter;
     private _room: Room;
-    private m_tfHelper: TransformSyncHelper;
-    private isLocalCharacterOnAttach: boolean = false;
 
     Start() {
         this.multiplay = Object.FindObjectOfType<ZepetoWorldMultiplay>();
@@ -48,10 +48,6 @@ export default class AttachObject extends ZepetoScriptBehaviour {
             this._localCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
             this.SendItem();
         });
-
-        // When a new player comes in, send the player information about the currently up blocks.
-        // ZepetoPlayers.instance.OnAddedPlayer.AddListener((sessionId: string) => {
-        // });
 
         // For MultiPlay
         this.multiplay.RoomCreated += (room: Room) => {
@@ -63,48 +59,30 @@ export default class AttachObject extends ZepetoScriptBehaviour {
                     itemName: message.itemName,
                     bone: message.bone
                 };
-
                 console.log(">>", attachItemInfo.sessionId, attachItemInfo.itemName, attachItemInfo.bone);
-                this.StartCoroutine(this.CreateObject(attachItemInfo));
+                
+                // this.StartCoroutine(this.CreateItem(attachItemInfo))
             });
         };
     }
     
-    *CreateObject(info: AttachItemInfo) {
-        yield new WaitUntil(()=>ZepetoPlayers.instance.HasPlayer(info.sessionId));
-        const player = ZepetoPlayers.instance.GetPlayer(info.sessionId).character;
-        
-        const pillow = GameObject.FindObjectOfType<Pillow>();
-        this.m_tfHelper = pillow.GetComponent<TransformSyncHelper>();
-        console.log(pillow);
-        console.log(this.m_tfHelper);
-        if(!this.m_tfHelper?.isOwner) {
-            this.multiplay.Room.Send("ChangeOwner", this.m_tfHelper.Id);
-        }
-        
-        if (player.GetComponentInChildren<Pillow>() == null) {
-            // Get the _localCharacter's animator component.
-            const animator: Animator = player.ZepetoAnimator;
-            // Get the position of the bone to attach the object to.
-            // const bone: HumanBodyBones = this.prefItem.GetComponent<Pillow>().bodyBone;
-            const boneTransform: Transform = animator.GetBoneTransform(this.bodyBone);
-
-            // Create the object prefab.
-        }
-
-    }
-    
-
-    
+    // *CreateItem(attachItemInfo: AttachItemInfo) {
+    //     yield new WaitUntil(()=>ZepetoPlayers.instance.HasPlayer(attachItemInfo.sessionId));
+    //     const player = ZepetoPlayers.instance.GetPlayer(attachItemInfo.sessionId).character;
+    //     // const bone: Transform = player.ZepetoAnimator.GetBoneTransform(HumanBodyBones[attachItemInfo.bone]);
+    //    
+    //     if (player.transform.Find(this.prefItem.name + "(Clone)") == null) {
+    //         console.log (">>>>>>> Instantiate")
+    //         MultiplayManager.instance.Instantiate(this.prefItem.name, attachItemInfo.sessionId, Vector3.zero, Quaternion.identity);
+    //     } else {
+    //         console.log (">>>>>>> not Instantiate")
+    //     }
+    //    
+    //     console.log(">> ", player.transform.Find(this.prefItem.name + "(Clone)"))
+    // }
     // 1.만들어라
     SendItem() {
-        // Get the _localCharacter's animator component.
-        const animator: Animator = this._localCharacter.ZepetoAnimator;
-        // Get the position of the bone to attach the object to.
-        const boneTransform: Transform = animator.GetBoneTransform(this.bodyBone);
-
-        // Create the object prefab.
-        MultiplayManager.instance.Instantiate(this.prefItem.name, this._room.SessionId, boneTransform.position, this.prefItem.transform.rotation);
+        MultiplayManager.instance.Instantiate(this.prefItem.name, this._room.SessionId, Vector3.zero, Quaternion.identity);
 
         const data = new RoomData();
         data.Add("itemName", this.prefItem.name);

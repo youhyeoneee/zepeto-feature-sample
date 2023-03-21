@@ -23,48 +23,37 @@ ScriptedImporter:
     ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
     UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst ZEPETO_Multiplay_1 =
     require(\\\"ZEPETO.Multiplay\\\");\\r\\nconst ZEPETO_World_1 = require(\\\"ZEPETO.World\\\");\\r\\nconst
-    MultiplayManager_1 = require(\\\"../ZepetoScripts/MultiplaySync/Common/MultiplayManager\\\");\\r\\nconst
-    TransformSyncHelper_1 = require(\\\"../ZepetoScripts/MultiplaySync/Transform/TransformSyncHelper\\\");\\r\\nconst
-    Pillow_1 = require(\\\"./Pillow\\\");\\r\\nclass AttachObject extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\\r\\n    constructor() {\\r\\n        super(...arguments);\\r\\n        this.bodyBone
-    = UnityEngine_1.HumanBodyBones.Neck;\\r\\n        this.isLocalCharacterOnAttach
-    = false;\\r\\n    }\\r\\n    Start() {\\r\\n        this.multiplay = UnityEngine_1.Object.FindObjectOfType($typeof(ZEPETO_World_1.ZepetoWorldMultiplay));\\r\\n       
+    MultiplayManager_1 = require(\\\"../ZepetoScripts/MultiplaySync/Common/MultiplayManager\\\");\\r\\nclass
+    AttachObject extends ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    constructor()
+    {\\r\\n        super(...arguments);\\r\\n        this.bodyBone = UnityEngine_1.HumanBodyBones.Neck;\\r\\n   
+    }\\r\\n    Start() {\\r\\n        this.multiplay = UnityEngine_1.Object.FindObjectOfType($typeof(ZEPETO_World_1.ZepetoWorldMultiplay));\\r\\n       
     ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
     => {\\r\\n            // Find the local player and set it to _localCharacter.\\r\\n           
     this._localCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\\r\\n           
-    this.SendItem();\\r\\n        });\\r\\n        // When a new player comes in,
-    send the player information about the currently up blocks.\\r\\n        // ZepetoPlayers.instance.OnAddedPlayer.AddListener((sessionId:
-    string) => {\\r\\n        // });\\r\\n        // For MultiPlay\\r\\n        this.multiplay.add_RoomCreated((room)
-    => {\\r\\n            this._room = room;\\r\\n            // Receive user's gesture
-    information from the server\\r\\n            this._room.AddMessageHandler(\\\"OnAttachItem\\\",
+    this.SendItem();\\r\\n        });\\r\\n        // For MultiPlay\\r\\n       
+    this.multiplay.add_RoomCreated((room) => {\\r\\n            this._room = room;\\r\\n           
+    // Receive user's gesture information from the server\\r\\n            this._room.AddMessageHandler(\\\"OnAttachItem\\\",
     (message) => {\\r\\n                let attachItemInfo = {\\r\\n                   
     sessionId: message.sessionId,\\r\\n                    itemName: message.itemName,\\r\\n                   
     bone: message.bone\\r\\n                };\\r\\n                console.log(\\\">>\\\",
     attachItemInfo.sessionId, attachItemInfo.itemName, attachItemInfo.bone);\\r\\n               
-    this.StartCoroutine(this.CreateObject(attachItemInfo));\\r\\n            });\\r\\n       
-    });\\r\\n    }\\r\\n    *CreateObject(info) {\\r\\n        yield new UnityEngine_1.WaitUntil(()
-    => ZEPETO_Character_Controller_1.ZepetoPlayers.instance.HasPlayer(info.sessionId));\\r\\n       
-    const player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.GetPlayer(info.sessionId).character;\\r\\n       
-    const pillow = UnityEngine_1.GameObject.FindObjectOfType($typeof(Pillow_1.default));\\r\\n       
-    this.m_tfHelper = pillow.GetComponent($typeof(TransformSyncHelper_1.default));\\r\\n       
-    console.log(pillow);\\r\\n        console.log(this.m_tfHelper);\\r\\n       
-    if (!this.m_tfHelper?.isOwner) {\\r\\n            this.multiplay.Room.Send(\\\"ChangeOwner\\\",
-    this.m_tfHelper.Id);\\r\\n        }\\r\\n        if (ZEPETO_Script_1.ZepetoScriptBehaviour.op_Equality(player.GetComponentInChildren($typeof(Pillow_1.default)),
-    null)) {\\r\\n            // Get the _localCharacter's animator component.\\r\\n           
-    const animator = player.ZepetoAnimator;\\r\\n            // Get the position
-    of the bone to attach the object to.\\r\\n            // const bone: HumanBodyBones
-    = this.prefItem.GetComponent<Pillow>().bodyBone;\\r\\n            const boneTransform
-    = animator.GetBoneTransform(this.bodyBone);\\r\\n            // Create the object
-    prefab.\\r\\n        }\\r\\n    }\\r\\n    // 1.\uB9CC\uB4E4\uC5B4\uB77C\\r\\n   
-    SendItem() {\\r\\n        // Get the _localCharacter's animator component.\\r\\n       
-    const animator = this._localCharacter.ZepetoAnimator;\\r\\n        // Get the
-    position of the bone to attach the object to.\\r\\n        const boneTransform
-    = animator.GetBoneTransform(this.bodyBone);\\r\\n        // Create the object
-    prefab.\\r\\n        MultiplayManager_1.default.instance.Instantiate(this.prefItem.name,
-    this._room.SessionId, boneTransform.position, this.prefItem.transform.rotation);\\r\\n       
+    // this.StartCoroutine(this.CreateItem(attachItemInfo))\\r\\n            });\\r\\n       
+    });\\r\\n    }\\r\\n    // *CreateItem(attachItemInfo: AttachItemInfo) {\\r\\n   
+    //     yield new WaitUntil(()=>ZepetoPlayers.instance.HasPlayer(attachItemInfo.sessionId));\\r\\n   
+    //     const player = ZepetoPlayers.instance.GetPlayer(attachItemInfo.sessionId).character;\\r\\n   
+    //     // const bone: Transform = player.ZepetoAnimator.GetBoneTransform(HumanBodyBones[attachItemInfo.bone]);\\r\\n   
+    //    \\r\\n    //     if (player.transform.Find(this.prefItem.name + \\\"(Clone)\\\")
+    == null) {\\r\\n    //         console.log (\\\">>>>>>> Instantiate\\\")\\r\\n   
+    //         MultiplayManager.instance.Instantiate(this.prefItem.name, attachItemInfo.sessionId,
+    Vector3.zero, Quaternion.identity);\\r\\n    //     } else {\\r\\n    //        
+    console.log (\\\">>>>>>> not Instantiate\\\")\\r\\n    //     }\\r\\n    //   
+    \\r\\n    //     console.log(\\\">> \\\", player.transform.Find(this.prefItem.name
+    + \\\"(Clone)\\\"))\\r\\n    // }\\r\\n    // 1.\uB9CC\uB4E4\uC5B4\uB77C\\r\\n   
+    SendItem() {\\r\\n        MultiplayManager_1.default.instance.Instantiate(this.prefItem.name,
+    this._room.SessionId, UnityEngine_1.Vector3.zero, UnityEngine_1.Quaternion.identity);\\r\\n       
     const data = new ZEPETO_Multiplay_1.RoomData();\\r\\n        data.Add(\\\"itemName\\\",
     this.prefItem.name);\\r\\n        data.Add(\\\"bone\\\", this.bodyBone);\\r\\n       
     this._room.Send(\\\"OnAttachItem\\\", data.GetObject());\\r\\n    }\\r\\n}\\r\\nexports.default
-    = AttachObject;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQXR0YWNoT2JqZWN0TXVsdGkuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJBdHRhY2hPYmplY3RNdWx0aS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFzRDtBQUN0RCw2RUFHcUM7QUFDckMsNkNBT3FCO0FBQ3JCLHVEQUcwQjtBQUMxQiwrQ0FBb0Q7QUFDcEQsNkZBQXFGO0FBQ3JGLHNHQUErRjtBQUMvRixxQ0FBOEI7QUFTOUIsTUFBcUIsWUFBYSxTQUFRLHFDQUFxQjtJQUEvRDs7UUFNVyxhQUFRLEdBQW1CLDRCQUFjLENBQUMsSUFBSSxDQUFDO1FBSzlDLDZCQUF3QixHQUFZLEtBQUssQ0FBQztJQTBFdEQsQ0FBQztJQXhFRyxLQUFLO1FBQ0QsSUFBSSxDQUFDLFNBQVMsR0FBRyxvQkFBTSxDQUFDLGdCQUFnQixTQUFDLG1DQUFvQixFQUFHLENBQUM7UUFFakUsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCx1REFBdUQ7WUFDdkQsSUFBSSxDQUFDLGVBQWUsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQztZQUNqRixJQUFJLENBQUMsUUFBUSxFQUFFLENBQUM7UUFDcEIsQ0FBQyxDQUFDLENBQUM7UUFFSCx5RkFBeUY7UUFDekYsNEVBQTRFO1FBQzVFLE1BQU07UUFFTixnQkFBZ0I7UUFDaEIsSUFBSSxDQUFDLFNBQVMsaUJBQWdCLENBQUMsSUFBVSxFQUFFLEVBQUU7WUFDekMsSUFBSSxDQUFDLEtBQUssR0FBRyxJQUFJLENBQUM7WUFDbEIscURBQXFEO1lBQ3JELElBQUksQ0FBQyxLQUFLLENBQUMsaUJBQWlCLENBQUMsY0FBYyxFQUFFLENBQUMsT0FBdUIsRUFBRSxFQUFFO2dCQUNyRSxJQUFJLGNBQWMsR0FBbUI7b0JBQ2pDLFNBQVMsRUFBRSxPQUFPLENBQUMsU0FBUztvQkFDNUIsUUFBUSxFQUFFLE9B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\",\"assetPath\":\"Assets/Attach/AttachObjectMulti.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"ZEPETO.World\",\"name\":\"multiplay\",\"type\":\"ZEPETO.World.ZepetoWorldMultiplay\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"prefItem\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.AnimationModule\",\"name\":\"bodyBone\",\"type\":\"UnityEngine.HumanBodyBones\",\"isArray\":false,\"initValue\":[\"Neck\"],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"AttachObject\",\"description\":\"\"},\"isCompiled\":true}"
-  typescriptHash: 9588ddebf7c3ede8cc6fc3e12b6c3fcd
+    = AttachObject;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQXR0YWNoT2JqZWN0TXVsdGkuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJBdHRhY2hPYmplY3RNdWx0aS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFzRDtBQUN0RCw2RUFHcUM7QUFDckMsNkNBU3FCO0FBQ3JCLHVEQUcwQjtBQUMxQiwrQ0FBb0Q7QUFDcEQsNkZBQXFGO0FBV3JGLE1BQXFCLFlBQWEsU0FBUSxxQ0FBcUI7SUFBL0Q7O1FBTVcsYUFBUSxHQUFtQiw0QkFBYyxDQUFDLElBQUksQ0FBQztJQXVEMUQsQ0FBQztJQWxERyxLQUFLO1FBQ0QsSUFBSSxDQUFDLFNBQVMsR0FBRyxvQkFBTSxDQUFDLGdCQUFnQixTQUFDLG1DQUFvQixFQUFHLENBQUM7UUFFakUsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCx1REFBdUQ7WUFDdkQsSUFBSSxDQUFDLGVBQWUsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQztZQUNqRixJQUFJLENBQUMsUUFBUSxFQUFFLENBQUM7UUFDcEIsQ0FBQyxDQUFDLENBQUM7UUFFSCxnQkFBZ0I7UUFDaEIsSUFBSSxDQUFDLFNBQVMsaUJBQWdCLENBQUMsSUFBVSxFQUFFLEVBQUU7WUFDekMsSUFBSSxDQUFDLEtBQUssR0FBRyxJQUFJLENBQUM7WUFDbEIscURBQXFEO1lBQ3JELElBQUksQ0FBQyxLQUFLLENBQUMsaUJBQWlCLENBQUMsY0FBYyxFQUFFLENBQUMsT0FBdUIsRUFBRSxFQUFFO2dCQUNyRSxJQUFJLGNBQWMsR0FBbUI7b0JBQ2pDLFNBQVMsRUFBRSxPQUFPLENBQUMsU0FBUztvQkFDNUIsUUFBUSxFQUFFLE9BQU8sQ0FBQyxRQUFRO29CQUMxQixJQUFJLEVBQUUsT0FBTyxDQUFDLElBQUk7aUJBQ3JCLENBQUM7Z0JBQ0YsT0FBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLEVBQUUsY0FBYyxDQUFDLFNBQVMsRUFBRSxjQUFjLENBQUMsUUFBUSxFQUFFLGNBQWMsQ0FBQyxJQUFJLENBQUMsQ0FBQztnQkFFMUYsdURBQXVEO1lBQzNELENBQUMsQ0FBQyxDQUFDO1FBQ1AsQ0FBQyxFQUFDO0lBQ04sQ0FBQztJQUVELGdEQUFnRDtJQUNoRCwyRkFBMkY7SUFDM0YsMkZBQTJGO0lBQzNGLDhHQUE4RztJQUM5RyxNQUFNO0lBQ04sMkVBQTJFO0lBQzNFLDhDQUE4QztJQUM5QyxrSUFBa0k7SUFDbEksZUFBZTtJQUNmLGtEQUFrRDtJQUNsRCxRQUFRO0lBQ1IsTUFBTTtJQUNOLGdGQUFnRjtJQUNoRixJQUFJO0lBQ0osU0FBUztJQUNULFFBQVE7UUFDSiwwQkFBZ0IsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxRQUFRLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxLQUFLLENBQUMsU0FBUyxFQUFFLHFCQUFPLENBQUMsSUFBSSxFQUFFLHdCQUFVLENBQUMsUUFBUSxDQUFDLENBQUM7UUFFbkgsTUFBTSxJQUFJLEdBQUcsSUFBSSwyQkFBUSxFQUFFLENBQUM7UUFDNUIsSUFBSSxDQUFDLEdBQUcsQ0FBQyxVQUFVLEVBQUUsSUFBSSxDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUN6QyxJQUFJLENBQUMsR0FBRyxDQUFDLE1BQU0sRUFBRSxJQUFJLENBQUMsUUFBUSxDQUFDLENBQUM7UUFDaEMsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsY0FBYyxFQUFFLElBQUksQ0FBQyxTQUFTLEVBQUUsQ0FBQyxDQUFDO0lBQ3RELENBQUM7Q0FFSjtBQTdERCwrQkE2REMifQ==\",\"assetPath\":\"Assets/Attach/AttachObjectMulti.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"ZEPETO.World\",\"name\":\"multiplay\",\"type\":\"ZEPETO.World.ZepetoWorldMultiplay\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"prefItem\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"initValue\":[],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.AnimationModule\",\"name\":\"bodyBone\",\"type\":\"UnityEngine.HumanBodyBones\",\"isArray\":false,\"initValue\":[\"Neck\"],\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"AttachObject\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: 8a2d28ad6497732564e4f2f912cb9033
   onlyWriteTrigger: 0

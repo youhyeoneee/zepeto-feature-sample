@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6076469119094247939}
   - component: {fileID: 6076469119094247940}
-  - component: {fileID: 6076469119094247941}
-  - component: {fileID: 6076469119094247942}
+  - component: {fileID: 7917777707827208356}
   m_Layer: 0
   m_Name: '[NPC]GIRL'
   m_TagString: Untagged
@@ -40,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6076469119094247943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
   m_Name: 
@@ -65,43 +64,14 @@ MonoBehaviour:
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: bf4ba61d72977413e90a9767a76882b8, type: 3}
     isExpaned: 0
---- !u!114 &6076469119094247941
+--- !u!114 &7917777707827208356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6076469119094247943}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  script:
-    keys:
-    - isGestureEnabled
-    - gesture
-    - zepetoId
-    unityValues:
-    - {fileID: 0}
-    - {fileID: 7400000, guid: ffcc77a915444454f920fc6a6b8cfe69, type: 2}
-    - {fileID: 0}
-    values:
-    - '{"type":"System.Boolean, mscorlib","value":"True"}'
-    - 
-    - '{"type":"System.String, mscorlib","value":"tester"}'
-    unityArrayValues: []
-    arrayValues: []
-    script: {fileID: 4458252877524076426, guid: ce8714a09b80844098e9eb65bcf639d6, type: 3}
-    isExpaned: 0
---- !u!114 &6076469119094247942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6076469119094247943}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
   m_Name: 
@@ -109,14 +79,11 @@ MonoBehaviour:
   script:
     keys:
     - zepetoId
-    - npcAnimator
     unityValues:
     - {fileID: 0}
-    - {fileID: 9100000, guid: 3e5b6aa63dbf4164a8f4c8a85b1bee90, type: 2}
     values:
-    - '{"type":"System.String, mscorlib","value":"tester"}'
-    - 
+    - '{"type":"System.String, mscorlib","value":"dbgus0311"}'
     unityArrayValues: []
     arrayValues: []
-    script: {fileID: 4458252877524076426, guid: be9586f958b285540ba4aeb5a9cf0fb0, type: 3}
+    script: {fileID: 4458252877524076426, guid: e1546b59a0dff44c7a0159ab3f9cc596, type: 3}
     isExpaned: 0

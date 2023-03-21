@@ -1,6 +1,6 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script';
 import { SpawnInfo, ZepetoCharacter, ZepetoCharacterCreator } from 'ZEPETO.Character.Controller';
-import { Vector3, AnimationClip, Animator, RuntimeAnimatorController } from 'UnityEngine';
+import { Animator, RuntimeAnimatorController } from 'UnityEngine';
 
 export default class NPCGesture extends ZepetoScriptBehaviour {
 

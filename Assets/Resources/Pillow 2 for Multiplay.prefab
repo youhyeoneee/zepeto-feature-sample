@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 5628491084757731375}
   - component: {fileID: 5328572814417140197}
   - component: {fileID: 8594215302675352925}
-  - component: {fileID: 8369656667401722513}
+  - component: {fileID: 602419888282205433}
   m_Layer: 0
   m_Name: Pillow 2 for Multiplay
   m_TagString: Pillow
@@ -185,11 +185,7 @@ MonoBehaviour:
     - SyncScale
     - ScaleInterpolationType
     - scaleUpSpeed
-    - seeVersionLog
-    - onwerSessionId
     unityValues:
-    - {fileID: 0}
-    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -207,25 +203,23 @@ MonoBehaviour:
     values:
     - '{"type":"System.String, mscorlib","value":"1"}'
     - '{"type":"System.Boolean, mscorlib","value":"True"}'
-    - '{"type":"System.Boolean, mscorlib","value":"True"}'
+    - '{"type":"System.Boolean, mscorlib","value":"False"}'
     - '{"type":"System.Single, mscorlib","value":"10"}'
     - '{"type":"System.String, mscorlib","value":"3"}'
     - '{"type":"System.String, mscorlib","value":"0"}'
     - '{"type":"System.Single, mscorlib","value":"1"}'
     - '{"type":"System.Single, mscorlib","value":"10"}'
-    - '{"type":"System.Boolean, mscorlib","value":"False"}'
+    - '{"type":"System.Boolean, mscorlib","value":"True"}'
     - '{"type":"System.String, mscorlib","value":"1"}'
     - '{"type":"System.Single, mscorlib","value":"100"}'
-    - '{"type":"System.Boolean, mscorlib","value":"False"}'
+    - '{"type":"System.Boolean, mscorlib","value":"True"}'
     - '{"type":"System.String, mscorlib","value":"1"}'
     - '{"type":"System.Single, mscorlib","value":"100"}'
-    - '{"type":"System.Boolean, mscorlib","value":"False"}'
-    - '{"type":"System.String, mscorlib","value":""}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 5419c5d1d2ede4cde844dd059edfebce, type: 3}
     isExpaned: 0
---- !u!114 &8369656667401722513
+--- !u!114 &602419888282205433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,10 +232,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script:
-    keys: []
-    unityValues: []
-    values: []
+    keys:
+    - targetBone
+    - localPosition
+    - localRotation
+    - ownerSessiondId
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    values:
+    - '{"type":"UnityEngine.HumanBodyBones, UnityEngine.AnimationModule","value":"{\"value__\":9}"}'
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.0,\"z\":0.0}"}'
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.0,\"z\":90.0}"}'
+    - '{"type":"System.String, mscorlib","value":""}'
     unityArrayValues: []
     arrayValues: []
-    script: {fileID: 4458252877524076426, guid: 8d1ac8d768e3c418a9e5782a461b1d42, type: 3}
+    script: {fileID: 4458252877524076426, guid: 4fc220b4e8d3045b182e880475a535eb, type: 3}
     isExpaned: 0

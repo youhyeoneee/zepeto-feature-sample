@@ -1,6 +1,6 @@
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script';
 import { SpawnInfo, ZepetoCharacter, ZepetoCharacterCreator } from 'ZEPETO.Character.Controller';
-import {WaitForSeconds} from "UnityEngine";
+import { WaitForSeconds } from 'UnityEngine';
 
 export default class NPCJump extends ZepetoScriptBehaviour {
 

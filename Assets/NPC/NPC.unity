@@ -388,15 +388,15 @@ MonoBehaviour:
   setting: {fileID: 0}
   cameraData:
     cameraPrefab: {fileID: 5806182858035002866, guid: 5be4eddc5b02f4ec0a07a69db26df962, type: 3}
-    maxZoomDistance: 10
-    minZoomDistance: 4
+    maxZoomDistance: 2
+    minZoomDistance: 2
     maxPitch: 80
     minPitch: -80
-    offset: {x: 0, y: 1, z: 0}
+    offset: {x: 0, y: 0, z: -1.3}
     lockXAxis: 0
     layer:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 0
     speed: 20
     sensitivity: 5
     useEnhancedOption: 0
@@ -623,6 +623,10 @@ GameObject:
   - component: {fileID: 1906617356}
   - component: {fileID: 1906617360}
   - component: {fileID: 1906617357}
+  - component: {fileID: 1906617361}
+  - component: {fileID: 1906617359}
+  - component: {fileID: 1906617358}
+  - component: {fileID: 1906617362}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -637,13 +641,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906617354}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1, y: 0, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1906617356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,7 +655,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906617354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
   m_Name: 
@@ -711,6 +715,64 @@ MonoBehaviour:
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 4f2dcb4511e270d4185a8929631f59c4, type: 3}
     isExpaned: 0
+--- !u!114 &1906617358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906617354}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - zepetoId
+    - nameTag
+    - nameTagPrefab
+    - nameTagYOffset
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 6946227296563869421, guid: 29211197545fd77448ee994578523e55, type: 3}
+    - {fileID: 0}
+    values:
+    - '{"type":"System.String, mscorlib","value":"tester"}'
+    - '{"type":"System.String, mscorlib","value":"NPC"}'
+    - 
+    - '{"type":"System.Single, mscorlib","value":"0.3"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: bf4ba61d72977413e90a9767a76882b8, type: 3}
+    isExpaned: 0
+--- !u!114 &1906617359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906617354}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - zepetoId
+    - npcAnimator
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 9100000, guid: 3e5b6aa63dbf4164a8f4c8a85b1bee90, type: 2}
+    values:
+    - '{"type":"System.String, mscorlib","value":"tester"}'
+    - 
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: bf4d78b5f7aabd34488710d700414207, type: 3}
+    isExpaned: 0
 --- !u!135 &1906617360
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -724,3 +786,223 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1906617361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906617354}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - zepetoId
+    unityValues:
+    - {fileID: 0}
+    values:
+    - '{"type":"System.String, mscorlib","value":"tester"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 0d150d8a810b37f4081324982c68098c, type: 3}
+    isExpaned: 0
+--- !u!114 &1906617362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906617354}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - zepetoId
+    unityValues:
+    - {fileID: 0}
+    values:
+    - '{"type":"System.String, mscorlib","value":"tester"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: e1546b59a0dff44c7a0159ab3f9cc596, type: 3}
+    isExpaned: 0
+--- !u!114 &3142926601087916637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239157371567088311}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - zepetoId
+    unityValues:
+    - {fileID: 0}
+    values:
+    - '{"type":"System.String, mscorlib","value":"tester2"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: e1546b59a0dff44c7a0159ab3f9cc596, type: 3}
+    isExpaned: 0
+--- !u!1 &5239157371567088311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5239157371567088315}
+  - component: {fileID: 5239157371567088314}
+  - component: {fileID: 3142926601087916637}
+  m_Layer: 0
+  m_Name: '[NPC]BOY'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &5239157371567088314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239157371567088311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - zepetoId
+    - nameTag
+    - nameTagPrefab
+    - nameTagYOffset
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 6946227296563869421, guid: 29211197545fd77448ee994578523e55, type: 3}
+    - {fileID: 0}
+    values:
+    - '{"type":"System.String, mscorlib","value":"tester2"}'
+    - '{"type":"System.String, mscorlib","value":"[NPC] boy"}'
+    - 
+    - '{"type":"System.Single, mscorlib","value":"0.35"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: bf4ba61d72977413e90a9767a76882b8, type: 3}
+    isExpaned: 0
+--- !u!4 &5239157371567088315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239157371567088311}
+  m_LocalRotation: {x: 0, y: 0.05233608, z: -0, w: -0.9986295}
+  m_LocalPosition: {x: -0.75, y: 0, z: -1.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 354, z: 0}
+--- !u!114 &6076469119322272521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076469119322272522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - zepetoId
+    - nameTag
+    - nameTagPrefab
+    - nameTagYOffset
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 6946227296563869421, guid: 29211197545fd77448ee994578523e55, type: 3}
+    - {fileID: 0}
+    values:
+    - '{"type":"System.String, mscorlib","value":"dbgus0311"}'
+    - '{"type":"System.String, mscorlib","value":"[NPC] girl"}'
+    - 
+    - '{"type":"System.Single, mscorlib","value":"0.35"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: bf4ba61d72977413e90a9767a76882b8, type: 3}
+    isExpaned: 0
+--- !u!1 &6076469119322272522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6076469119322272526}
+  - component: {fileID: 6076469119322272521}
+  - component: {fileID: 7917777708009374121}
+  m_Layer: 0
+  m_Name: '[NPC]GIRL'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6076469119322272526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076469119322272522}
+  m_LocalRotation: {x: 0, y: 0.30070576, z: 0, w: 0.953717}
+  m_LocalPosition: {x: -1.5, y: 0, z: -1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 35, z: 0}
+--- !u!114 &7917777708009374121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076469119322272522}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - zepetoId
+    unityValues:
+    - {fileID: 0}
+    values:
+    - '{"type":"System.String, mscorlib","value":"dbgus0311"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: e1546b59a0dff44c7a0159ab3f9cc596, type: 3}
+    isExpaned: 0
