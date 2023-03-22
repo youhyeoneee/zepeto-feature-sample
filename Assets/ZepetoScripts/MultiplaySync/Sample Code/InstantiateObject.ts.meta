@@ -22,12 +22,14 @@ ScriptedImporter:
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
     UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_Character_Controller_1
     = require(\"ZEPETO.Character.Controller\");\r\nconst MultiplayManager_1 = require(\"../Common/MultiplayManager\");\r\nclass
-    InstantiateObject extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    OnTriggerEnter(coll)
-    {\r\n        console.log(\">> Trigger\");\r\n        if (coll != ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer?.zepetoPlayer?.character.GetComponent($typeof(UnityEngine_1.Collider)))
-    {\r\n            return;\r\n        }\r\n        MultiplayManager_1.default.instance.Instantiate(this._prefab.name,
-    MultiplayManager_1.default.instance?.room.SessionId, UnityEngine_1.Vector3.zero,
-    UnityEngine_1.Quaternion.identity);\r\n    }\r\n}\r\nexports.default = InstantiateObject;\r\n//#
-    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSW5zdGFudGlhdGVPYmplY3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJJbnN0YW50aWF0ZU9iamVjdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFtRDtBQUNuRCw2Q0FBd0U7QUFDeEUsNkVBQTBEO0FBQzFELGlFQUEwRDtBQUUxRCxNQUFxQixpQkFBa0IsU0FBUSxxQ0FBcUI7SUFHeEQsY0FBYyxDQUFDLElBQWM7UUFFakMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxZQUFZLENBQUMsQ0FBQTtRQUN6QixJQUFHLElBQUksSUFBSSwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLEVBQUUsWUFBWSxFQUFFLFNBQVMsQ0FBQyxZQUFZLFNBQUMsc0JBQVEsRUFBRyxFQUFDO1lBQzVGLE9BQU87U0FDVjtRQUNELDBCQUFnQixDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxJQUFJLEVBQUUsMEJBQWdCLENBQUMsUUFBUSxFQUFFLElBQUksQ0FBQyxTQUFTLEVBQUUscUJBQU8sQ0FBQyxJQUFJLEVBQUUsd0JBQVUsQ0FBQyxRQUFRLENBQUMsQ0FBQztJQUMzSSxDQUFDO0NBQ0o7QUFYRCxvQ0FXQyJ9","assetPath":"Assets/ZepetoScripts/MultiplaySync/Sample
+    InstantiateObject extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
+    {\r\n        super(...arguments);\r\n        this._isFirst = true;\r\n    }\r\n   
+    OnTriggerEnter(coll) {\r\n        if (coll != ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer?.zepetoPlayer?.character.GetComponent($typeof(UnityEngine_1.Collider)))
+    {\r\n            return;\r\n        }\r\n        if (this._isFirst) {\r\n           
+    MultiplayManager_1.default.instance.Instantiate(this._prefab.name, MultiplayManager_1.default.instance?.room.SessionId,
+    UnityEngine_1.Vector3.zero, UnityEngine_1.Quaternion.identity);\r\n           
+    this._isFirst = false;\r\n        }\r\n    }\r\n}\r\nexports.default = InstantiateObject;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSW5zdGFudGlhdGVPYmplY3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJJbnN0YW50aWF0ZU9iamVjdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFzRDtBQUN0RCw2Q0FBZ0Y7QUFDaEYsNkVBQTREO0FBQzVELGlFQUEwRDtBQUUxRCxNQUFxQixpQkFBa0IsU0FBUSxxQ0FBcUI7SUFBcEU7O1FBSVksYUFBUSxHQUFTLElBQUksQ0FBQztJQWFsQyxDQUFDO0lBWFcsY0FBYyxDQUFDLElBQWM7UUFFakMsSUFBSSxJQUFJLElBQUksMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxFQUFFLFlBQVksRUFBRSxTQUFTLENBQUMsWUFBWSxTQUFDLHNCQUFRLEVBQUcsRUFBQztZQUM3RixPQUFPO1NBQ1Y7UUFFRCxJQUFJLElBQUksQ0FBQyxRQUFRLEVBQUU7WUFDZiwwQkFBZ0IsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxFQUFFLDBCQUFnQixDQUFDLFFBQVEsRUFBRSxJQUFJLENBQUMsU0FBUyxFQUFFLHFCQUFPLENBQUMsSUFBSSxFQUFFLHdCQUFVLENBQUMsUUFBUSxDQUFDLENBQUM7WUFDdkksSUFBSSxDQUFDLFFBQVEsR0FBRyxLQUFLLENBQUM7U0FDekI7SUFDTCxDQUFDO0NBQ0o7QUFqQkQsb0NBaUJDIn0=","assetPath":"Assets/ZepetoScripts/MultiplaySync/Sample
     Code/InstantiateObject.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"_prefab","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"InstantiateObject","description":""},"isCompiled":true}'
-  typescriptHash: 1607f723a7aba684a2d25e0fb12d2ab2
+  typescriptHash: 5dde13553d4d657566317791e7dce0e7
   onlyWriteTrigger: 0

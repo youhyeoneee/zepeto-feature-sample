@@ -1,0 +1,40 @@
+fileFormatVersion: 2
+guid: b333d7edd8b2f492e8e214e616eea6c2
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ZEPETO_Character_Controller_1
+    = require(\"ZEPETO.Character.Controller\");\r\nclass NPCDialogInteraction extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            this._zepetoCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\r\n       
+    });\r\n        // Dialog - Select Yes\r\n        this.yesButton.onClick.AddListener(()
+    => {\r\n            console.log(\"yes\");\r\n            this.npcDialogCanvas.SetActive(false);\r\n       
+    });\r\n        // Dialog - Select No\r\n        this.noButton.onClick.AddListener(()
+    => {\r\n            console.log(\"no\");\r\n            this.npcDialogCanvas.SetActive(false);\r\n       
+    });\r\n    }\r\n    // Check if Player character enter collider\r\n    OnTriggerEnter(collider)
+    {\r\n        if (this._zepetoCharacter == null || UnityEngine_1.GameObject.op_Inequality(collider.gameObject,
+    this._zepetoCharacter.gameObject)) {\r\n            return;\r\n        }\r\n       
+    this.npcDialogCanvas.SetActive(true);\r\n    }\r\n    OnTriggerExit(collider)
+    {\r\n        if (this._zepetoCharacter == null || UnityEngine_1.GameObject.op_Inequality(collider.gameObject,
+    this._zepetoCharacter.gameObject)) {\r\n            return;\r\n        }\r\n       
+    this.npcDialogCanvas.SetActive(false);\r\n    }\r\n}\r\nexports.default = NPCDialogInteraction;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTlBDRGlhbG9nLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTlBDRGlhbG9nLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQTJFO0FBQzNFLGlEQUFzRDtBQUV0RCw2RUFBNkU7QUFFN0UsTUFBcUIsb0JBQXFCLFNBQVEscUNBQXFCO0lBUW5FLEtBQUs7UUFFRCwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRSxFQUFFO1lBQ3RELElBQUksQ0FBQyxnQkFBZ0IsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQztRQUN0RixDQUFDLENBQUMsQ0FBQztRQUVILHNCQUFzQjtRQUN0QixJQUFJLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3BDLE9BQU8sQ0FBQyxHQUFHLENBQUMsS0FBSyxDQUFDLENBQUE7WUFDbEIsSUFBSSxDQUFDLGVBQWUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7UUFDMUMsQ0FBQyxDQUFDLENBQUM7UUFFSCxxQkFBcUI7UUFDckIsSUFBSSxDQUFDLFFBQVEsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUNuQyxPQUFPLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxDQUFBO1lBQ2pCLElBQUksQ0FBQyxlQUFlLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBQzFDLENBQUMsQ0FBQyxDQUFDO0lBRVAsQ0FBQztJQUVELDJDQUEyQztJQUMzQyxjQUFjLENBQUMsUUFBa0I7UUFDN0IsSUFBSSxJQUFJLENBQUMsZ0JBQWdCLElBQUksSUFBSSxJQW5DaEMsd0JBQVUsQ0FnRHNsVCxhQUFjLENBYjFrVCxRQUFRLENBQUMsVUFBVSxFQUFJLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxVQUFVLENBQUEsRUFBRTtZQUMxRixPQUFPO1NBQ1Y7UUFDRCxJQUFJLENBQUMsZUFBZSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUN6QyxDQUFDO0lBRUQsYUFBYSxDQUFDLFFBQWtCO1FBQzVCLElBQUksSUFBSSxDQUFDLGdCQUFnQixJQUFJLElBQUksSUExQ2hDLHdCQUFVLENBZ0RzbFQsYUFBYyxDQU4xa1QsUUFBUSxDQUFDLFVBQVUsRUFBSSxJQUFJLENBQUMsZ0JBQWdCLENBQUMsVUFBVSxDQUFBLEVBQUU7WUFDMUYsT0FBTztTQUNWO1FBQ0QsSUFBSSxDQUFDLGVBQWUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDMUMsQ0FBQztDQUVKO0FBM0NELHVDQTJDQyJ9","assetPath":"Assets/NPC/Scripts/NPCDialog.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"npcDialogCanvas","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"yesButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"noButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"NPCDialogInteraction","description":""},"isCompiled":true}'
+  typescriptHash: fb3f885f1c9c600dd4a7be813bc98641
+  onlyWriteTrigger: 0
